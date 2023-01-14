@@ -1,0 +1,53 @@
+<div>
+
+  <form (ngSubmit)="send()" #eventsForm="ngForm">
+    <h2>New Event</h2>
+    <span (click)="back()">✖</span>
+    <mat-form-field>
+      <mat-label>Event Type</mat-label>
+      <mat-select matInput placeholder="Select Event Type" name="addType" [(ngModel)]="event.typeId"
+      #addTypeBox="ngModel" required>
+      <mat-option *ngFor="let t of types" value={{t._id}}>{{t.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="error" *ngIf="addTypeBox.errors?.['required'] && addTypeBox.touched">You must select event type</div>
+
+    <mat-form-field>
+      <mat-label>Date & Time</mat-label>
+      <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose date & time" #dateBox="ngModel"
+        name="dateTime" [(ngModel)]="event.date" required />
+      <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+      <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
+    </mat-form-field>
+    <div class="error" *ngIf="dateBox.errors?.['required'] && dateBox.touched">Missing event date and time</div>
+
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input matInput placeholder="Description" name="description" [(ngModel)]="event.description" #descriptionBox="ngModel" required minlength="2" maxlength="100"/>
+      <mat-error *ngIf="descriptionBox.errors?.['minlength'] && descriptionBox.touched">Minimum 2 chars</mat-error>
+      <mat-error *ngIf="descriptionBox.errors?.['maxlength'] && descriptionBox.touched">Can't exceed 100 chars</mat-error>
+    </mat-form-field>
+    <div class="error" *ngIf="descriptionBox.errors?.['required'] && descriptionBox.touched">Missing event description</div>
+
+    <mat-form-field>
+      <mat-label>Address</mat-label>
+      <input matInput placeholder="Address" name="address" [(ngModel)]="event.address" #addressBox="ngModel" required minlength="2" maxlength="100" />
+      <mat-error *ngIf="addressBox.errors?.['minlength'] && addressBox.touched">Minimum 2 chars</mat-error>
+      <mat-error *ngIf="addressBox.errors?.['maxlength'] && addressBox.touched">Can't exceed 100 chars</mat-error>
+    </mat-form-field>
+    <div class="error" *ngIf="addressBox.errors?.['required'] && addressBox.touched">Missing event address</div>
+
+    <mat-form-field>
+      <mat-label>People Amount</mat-label>
+      <input matInput placeholder="People Amount" type="number" name="amount" [(ngModel)]="event.amount" #amountBox="ngModel" required
+        min="5" max="1000" />
+      <mat-error *ngIf="amountBox.errors?.['min'] && amountBox.touched">Must be at least 5 participants</mat-error>
+      <mat-error *ngIf="amountBox.errors?.['max'] && amountBox.touched">People amount can't exceed 1000</mat-error>
+    </mat-form-field>
+    <div class="error" *ngIf="amountBox.errors?.['required'] && amountBox.touched">Missing event amount</div>
+
+    <button mat-raised-button color="primary" [disabled]="eventsForm.invalid">Add</button>
+
+  </form>
+
+</div>

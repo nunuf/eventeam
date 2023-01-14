@@ -1,0 +1,7 @@
+.active-link {
+  background-image: linear-gradient(to left, #ffff66, #fe17a2, #ab20fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-size: larger;
+}

@@ -1,0 +1,58 @@
+html,
+body {
+  height: 100%;
+  color: white;
+  text-align: center;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: large;
+  background-image: url('../src/assets/images/background.gif');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  overflow: auto;
+}
+
+a {
+  color: lightgrey
+}
+
+.box {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  height: 100%;
+  text-align: center;
+  padding: 15px 20px;
+  width: 300px;
+  margin: 10px;
+  border-radius: 20px;
+  display: inline-block;
+  background-image: linear-gradient(90deg, gray, white, gray);
+  font-size: large;
+  color: black;
+  opacity: 80%;
+  overflow: auto;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(91, 11, 95, 0.2); 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(45deg, gray, white, gray); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(45deg, #525252, white, #525252);
+}

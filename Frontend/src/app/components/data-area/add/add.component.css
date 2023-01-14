@@ -1,0 +1,36 @@
+form {
+  width: 300px;
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px auto;
+  color: white;
+}
+
+h2 {
+  display: inline-block;
+  text-align: center;
+}
+
+span {
+  cursor: pointer;
+  position: relative;
+  left: 94px;
+  top: -10px;
+  font-size: 20px;
+}
+
+mat-form-field,
+button {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.error {
+  position: relative;
+  top: -28px;
+  left: 16px;
+  font-size: 12px;
+  text-align: left;
+  color: var(--mdc-theme-error, #f44336);
+}

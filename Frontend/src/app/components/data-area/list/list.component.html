@@ -1,0 +1,47 @@
+<div>
+  <div class="mode" *ngIf="events?.length" (click)="viewMode = (viewMode === 'table' ? 'grid' : 'table')">
+    <mat-icon matTooltip="Change to grid mode" *ngIf="viewMode === 'table'">view_module</mat-icon>
+    <mat-icon matTooltip="Change to table mode" *ngIf="viewMode === 'grid'">view_column</mat-icon>
+  </div>
+
+  <mat-form-field>
+    <mat-label>Event Type</mat-label>
+    <mat-select matInput name="type" [(value)]="selectedValue" (valueChange)="displayEvents()">
+      <mat-option selected disabled value="">Select Event Type</mat-option>
+      <mat-option *ngFor="let t of types" [value]="t._id">{{t.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div *ngIf="selectedValue && !events?.length" class="empty">No events</div>
+
+  <div *ngIf="viewMode === 'table'">
+    <table *ngIf="events?.length">
+      <thead>
+        <tr>
+          <th>Event Type Name</th>
+          <th>Date and time</th>
+          <th>Description</th>
+          <th>address</th>
+          <th>amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let e of events">
+          <td>{{e.type.name}}</td>
+          <td>{{e.date | date: 'dd/MM/yyyy HH:mm'}}</td>
+          <td class="description">{{e.description}}</td>
+          <td>{{e.address}}</td>
+          <td>{{e.amount}}</td>
+          <td>{{getTiming(e)}}</td>
+          <td>
+            <div (click)="deleteMe(e._id)">✖</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="viewMode === 'grid'">
+    <app-data-card *ngFor="let e of events" [event]="e" (onDelete)="handleDelete(e._id)"></app-data-card>
+  </div>
+</div>

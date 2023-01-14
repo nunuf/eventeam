@@ -1,0 +1,35 @@
+.empty {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  font-size: 30px;
+}
+
+table {
+  margin: 20px auto;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+td > div {
+  cursor: pointer;
+}
+
+.mode {
+  position: relative;
+  top: 64px;
+  right: 702px;
+  cursor: pointer;
+}
+
+.description {
+  max-width: 500px;
+  word-break: break-word;
+}
