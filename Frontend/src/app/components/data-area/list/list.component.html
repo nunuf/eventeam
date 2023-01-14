@@ -18,23 +18,25 @@
     <table *ngIf="events?.length">
       <thead>
         <tr>
-          <th>Event Type Name</th>
-          <th>Date and time</th>
+          <th>Event Type</th>
+          <th>When</th>
           <th>Description</th>
-          <th>address</th>
-          <th>amount</th>
+          <th>Where</th>
+          <th>Attendees</th>
+          <th>Comments</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let e of events">
           <td>{{e.type.name}}</td>
           <td>{{e.date | date: 'dd/MM/yyyy HH:mm'}}</td>
-          <td class="description">{{e.description}}</td>
-          <td>{{e.address}}</td>
+          <td class="text">{{e.description}}</td>
+          <td class="text">{{e.address}}</td>
           <td>{{e.amount}}</td>
           <td>{{getTiming(e)}}</td>
           <td>
-            <div (click)="deleteMe(e._id)">✖</div>
+            <div (click)="deleteMe(e._id)" matTooltip="Delete event"><mat-icon fontIcon="delete"></mat-icon></div>
           </td>
         </tr>
       </tbody>

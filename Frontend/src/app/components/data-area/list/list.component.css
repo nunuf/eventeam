@@ -29,7 +29,7 @@ td > div {
   cursor: pointer;
 }
 
-.description {
+.text {
   max-width: 500px;
   word-break: break-word;
 }

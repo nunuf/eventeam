@@ -1,10 +1,9 @@
 <div class="box">
-  <div class="deleteBtn"><mat-icon fontIcon="delete" (click)="deleteEvent()"></mat-icon></div>
-  <div ></div>
-  <div class="ellipsis" matTooltip={{event.type.name}}><b>{{event.type.name}}</b></div>
-  <div class="description">{{event.description}}</div>
+  <div class="ellipsis"><b>{{event.type.name}}</b></div>
+  <div class="ellipsis description" matTooltip={{event.description}}>{{event.description}}</div>
   <div><b>When:</b> {{event.date | date: 'dd/MM/yyyy HH:mm'}}</div>
-  <div><b>Where:</b> {{event.address}}</div>
+  <div class="ellipsis" matTooltip={{event.address}}><b>Where:</b> {{event.address}}</div>
   <div><b>Attendees:</b> {{event.amount}}</div>
-  <div>{{timing}}</div>
+  <div class="description">{{timing}}</div>
+  <div class="delete-btn" matTooltip="Delete event"><mat-icon fontIcon="delete" (click)="deleteEvent()"></mat-icon></div>
 </div>

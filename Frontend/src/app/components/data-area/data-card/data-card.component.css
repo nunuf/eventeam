@@ -1,23 +1,18 @@
-div.box {
-  height: 200px;
+.box {
+  height: 186px;
   overflow-x: hidden !important;
-}
-
-.deleteBtn {
-  position: relative;
-  left: 150px;
-  cursor: pointer;
 }
 
 .ellipsis {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: inline-block;
 }
 
 .description {
-  max-height: 30%;
-  word-wrap: break-word;
-  overflow-y: auto;
+  margin: 9px 0;
+}
+
+.delete-btn {
+  cursor: pointer;
 }
